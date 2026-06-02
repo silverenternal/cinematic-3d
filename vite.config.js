@@ -17,6 +17,7 @@ export default defineConfig({
         main:    resolve(__dirname, 'index.html'),
         profile: resolve(__dirname, 'profile.html'),
         editor:  resolve(__dirname, 'editor.html'),
+        lab:     resolve(__dirname, 'lab.html'),
       },
     },
   },
