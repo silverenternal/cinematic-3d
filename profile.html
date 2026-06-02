@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0a0d12" />
+    <title>silverenternal — Profile</title>
+    <meta name="description" content="Hugo Lee · China Jiliang University · AI. Selected work, repositories, and links." />
+  </head>
+  <body class="profile">
+    <div class="bg-grid" aria-hidden="true"></div>
+    <div class="bg-glow"  aria-hidden="true"></div>
+
+    <header class="nav">
+      <a class="nav__brand" href="./index.html">Year of Wonder</a>
+      <nav class="nav__links">
+        <a class="nav__link" href="./index.html">Experience</a>
+        <a class="nav__link is-active" href="./profile.html">Profile</a>
+        <a class="nav__link nav__link--external" href="https://github.com/silverenternal" target="_blank" rel="noopener">GitHub ↗</a>
+      </nav>
+    </header>
+
+    <main class="page">
+      <!-- ----- Hero ----- -->
+      <section class="hero">
+        <div class="hero__avatar" id="avatar">
+          <div class="hero__avatar-fallback">SL</div>
+        </div>
+        <div class="hero__text">
+          <p class="hero__eyebrow" id="eyebrow">— loading —</p>
+          <h1 class="hero__name" id="name">silverenternal</h1>
+          <p class="hero__bio"  id="bio"></p>
+          <ul class="hero__meta" id="meta"></ul>
+          <div class="hero__cta">
+            <a class="btn btn--primary" id="cta-primary" href="#" target="_blank" rel="noopener">View on GitHub</a>
+            <a class="btn btn--ghost"   href="https://github.com/silverenternal?tab=repositories" target="_blank" rel="noopener">All repositories →</a>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider"><span>SELECTED WORK</span></div>
+
+      <!-- ----- Repo grid ----- -->
+      <section class="repos">
+        <div class="repos__toolbar">
+          <div class="repos__filter" id="filter">
+            <button class="chip is-active" data-lang="all">All</button>
+            <button class="chip" data-lang="JavaScript">JavaScript</button>
+            <button class="chip" data-lang="Python">Python</button>
+            <button class="chip" data-lang="TypeScript">TypeScript</button>
+            <button class="chip" data-lang="HTML">HTML</button>
+            <button class="chip" data-lang="Java">Java</button>
+            <button class="chip" data-lang="C++">C++</button>
+          </div>
+          <span class="repos__count" id="repo-count">— repos</span>
+        </div>
+        <div class="repos__grid" id="repos-grid">
+          <div class="repos__loading">Loading repositories…</div>
+        </div>
+      </section>
+
+      <footer class="foot">
+        <span>Built with Three.js &amp; a stubborn refusal to use a framework.</span>
+        <span class="foot__sig" id="foot-sig">— silverenternal</span>
+      </footer>
+    </main>
+
+    <script type="module" src="/src/profile.js"></script>
+  </body>
+</html>

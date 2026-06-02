@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite';
+import { resolve } from 'node:path';
 
 export default defineConfig({
   plugins: [],
@@ -11,5 +12,11 @@ export default defineConfig({
     target: 'es2020',
     sourcemap: false,
     chunkSizeWarningLimit: 1200,
+    rollupOptions: {
+      input: {
+        main:    resolve(__dirname, 'index.html'),
+        profile: resolve(__dirname, 'profile.html'),
+      },
+    },
   },
 });
