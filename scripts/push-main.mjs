@@ -43,23 +43,36 @@ function gitStatus() {
   });
 }
 
-async function main() {
-  const status = gitStatus();
-  console.log(`[push-main] ${status.length} changed files`);
+function gitDiff() {
+  // committed changes between HEAD and HEAD~N: collect the diff of files
+  const out = execSync('git diff --name-only HEAD~1 HEAD', { cwd: ROOT, encoding: 'utf8' });
+  return out.split('\n').filter(Boolean);
+}
 
-  // Collect files: anything not 'D' (deleted) — for simplicity, all changed paths.
+async function main() {
+  const mode = process.argv[2] || 'working';
+
+  let files = [];
+  if (mode === 'last-commit') {
+    files = gitDiff();
+    console.log(`[push-main] pushing files from last commit: ${files.length}`);
+  } else {
+    files = gitStatus().map((f) => f.path);
+    console.log(`[push-main] ${files.length} working-tree files`);
+  }
+
   const tree = [];
-  for (const f of status) {
-    if (f.code === 'D') continue; // skip deletes
-    // ? in column 2 means untracked; we still need to read it
-    const full = join(ROOT, f.path);
-    const buf = await readFile(full);
+  for (const f of files) {
+    if (!f || f === '') continue;
+    const full = join(ROOT, f);
+    let buf;
+    try { buf = await readFile(full); } catch { console.log(`  skip (missing): ${f}`); continue; }
     const blob = await req(`/git/blobs`, {
       method: 'POST',
       body: JSON.stringify({ content: buf.toString('base64'), encoding: 'base64' }),
     });
-    tree.push({ path: f.path, mode: '100644', type: 'blob', sha: blob.sha });
-    console.log(`  blob: ${f.path}`);
+    tree.push({ path: f, mode: '100644', type: 'blob', sha: blob.sha });
+    console.log(`  blob: ${f}`);
   }
 
   // Get current main head
