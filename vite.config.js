@@ -1,8 +1,7 @@
 import { defineConfig } from 'vite';
-import glsl from 'vite-plugin-glsl';
 
 export default defineConfig({
-  plugins: [glsl()],
+  plugins: [],
   base: './',
   server: {
     host: '127.0.0.1',
