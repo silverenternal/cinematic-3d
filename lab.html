@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0a0d12" />
+    <title>Lab — WebGL experiments</title>
+    <meta name="description" content="Three real-time WebGL experiments: particle field, fragment shader, and a 3D object array. Mouse + scroll driven." />
+    <script type="module" crossorigin src="./assets/lab-BZbcw24U.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/modulepreload-polyfill-B5Qt9EMX.js">
+    <link rel="modulepreload" crossorigin href="./assets/three.module-CFyo1FaF.js">
+    <link rel="stylesheet" crossorigin href="./assets/lab-DlxlIDge.css">
+  </head>
+  <body class="lab">
+    <nav class="topbar">
+      <a class="topbar__brand" href="./index.html">Year of Wonder</a>
+      <div class="topbar__links">
+        <a class="topbar__link" href="./index.html">Experience</a>
+        <a class="topbar__link" href="./profile.html">Profile</a>
+        <a class="topbar__link is-active" href="./lab.html">Lab</a>
+        <a class="topbar__link topbar__link--external" href="https://github.com/silverenternal" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </nav>
+
+    <header class="lab-hero">
+      <p class="lab-hero__eyebrow">— WebGL experiments · no frameworks —</p>
+      <h1 class="lab-hero__title">Lab.</h1>
+      <p class="lab-hero__sub">Three live experiments. <strong>Move your mouse</strong> across any of them.</p>
+    </header>
+
+    <main class="lab-grid">
+
+      <!-- ===== Demo 1: Particle field ===== -->
+      <section class="demo" id="demo-particles" data-demo="particles">
+        <header class="demo__head">
+          <span class="demo__num">01</span>
+          <h2 class="demo__title">Particle field</h2>
+          <p class="demo__lede">2,000 particles. Each one is pulled toward your cursor with a spring force. <kbd>click</kbd> to repel.</p>
+        </header>
+        <div class="demo__stage">
+          <canvas class="demo__canvas" id="cv-particles"></canvas>
+        </div>
+        <footer class="demo__foot">
+          <code>requestAnimationFrame · 2D Canvas · Verlet integration</code>
+        </footer>
+      </section>
+
+      <!-- ===== Demo 2: Fragment shader ===== -->
+      <section class="demo" id="demo-shader" data-demo="shader">
+        <header class="demo__head">
+          <span class="demo__num">02</span>
+          <h2 class="demo__title">Reactive shader</h2>
+          <p class="demo__lede">A single full-screen fragment shader. Coordinates warped by sin/cos and your mouse position.</p>
+        </header>
+        <div class="demo__stage">
+          <canvas class="demo__canvas" id="cv-shader"></canvas>
+        </div>
+        <footer class="demo__foot">
+          <code>WebGL · GLSL · raymarched circles</code>
+        </footer>
+      </section>
+
+      <!-- ===== Demo 3: 3D array ===== -->
+      <section class="demo" id="demo-array" data-demo="array">
+        <header class="demo__head">
+          <span class="demo__num">03</span>
+          <h2 class="demo__title">3D array</h2>
+          <p class="demo__lede">Sixty-four geometries arranged in a 4×4×4 cube. Drag to orbit, scroll to change the wave pattern.</p>
+        </header>
+        <div class="demo__stage">
+          <canvas class="demo__canvas" id="cv-array"></canvas>
+        </div>
+        <footer class="demo__foot">
+          <code>Three.js · InstancedMesh · GLSL easing</code>
+        </footer>
+      </section>
+
+    </main>
+
+    <footer class="lab-foot">
+      <span>All three run on a single CPU/GPU, ~60 fps on a 2018 MacBook.</span>
+      <a href="./index.html" class="lab-foot__back">← back to the cinematic experience</a>
+    </footer>
+
+  </body>
+</html>
