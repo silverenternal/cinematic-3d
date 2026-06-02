@@ -49,6 +49,12 @@ const state = {
   githubUser: 'silverenternal',
   repos: [],
   selectedRepos: new Set(['cinematic-3d']),
+  pinDescriptions: {
+    'cinematic-3d': 'A cinematic 3D web experience — orbital camera, bloom, film grain, 12-chapter timeline.',
+  },
+  pinStacks: {
+    'cinematic-3d': 'Three.js · WebGL · GLSL',
+  },
 };
 
 // ============================================================
@@ -125,25 +131,46 @@ function rebuildPinned() {
   }
   for (const r of state.repos) {
     if (r.archived) continue; // skip archived by default
-    const id = `pin-${r.id}`;
-    const wrap = document.createElement('label');
+    const cbId = `pin-${r.id}`;
+    const descId = `pindesc-${r.id}`;
+    const stackId = `pinstack-${r.id}`;
+    const wrap = document.createElement('div');
     wrap.className = 'pin';
-    wrap.setAttribute('for', id);
     wrap.innerHTML = `
-      <input type="checkbox" id="${id}" ${state.selectedRepos.has(r.name) ? 'checked' : ''} data-repo="${r.name}" />
-      <span class="pin__main">
-        <span class="pin__name">${escapeHTML(r.name)}</span>
-        <span class="pin__desc">${escapeHTML(r.description || '—')}</span>
-        <span class="pin__meta">
-          ${r.language ? `<span class="pin__lang">${escapeHTML(r.language)}</span>` : ''}
-          <span class="pin__stat">★ ${r.stargazers_count}</span>
-          <span class="pin__stat">⑂ ${r.forks_count}</span>
+      <label class="pin__row" for="${cbId}">
+        <input type="checkbox" id="${cbId}" ${state.selectedRepos.has(r.name) ? 'checked' : ''} data-repo="${r.name}" />
+        <span class="pin__main">
+          <span class="pin__name">${escapeHTML(r.name)}</span>
+          <span class="pin__desc">${escapeHTML(r.description || '—')}</span>
+          <span class="pin__meta">
+            ${r.language ? `<span class="pin__lang">${escapeHTML(r.language)}</span>` : ''}
+            <span class="pin__stat">★ ${r.stargazers_count}</span>
+            <span class="pin__stat">⑂ ${r.forks_count}</span>
+          </span>
         </span>
-      </span>
+      </label>
+      <div class="pin__custom" data-show-when="${escapeHTML(r.name)}">
+        <label class="field field--inline">
+          <span class="field__label">Display description (in Selected work)</span>
+          <input type="text" id="${descId}" data-pindesc="${r.name}" value="${escapeHTML(state.pinDescriptions[r.name] || '')}" placeholder="${escapeHTML(r.description || 'A project by silverenternal.')}" />
+        </label>
+        <label class="field field--inline">
+          <span class="field__label">Stack label</span>
+          <input type="text" id="${stackId}" data-pinstack="${r.name}" value="${escapeHTML(state.pinStacks[r.name] || '')}" placeholder="e.g. Three.js · WebGL" />
+        </label>
+      </div>
     `;
-    wrap.querySelector('input').addEventListener('change', (e) => {
+    wrap.querySelector(`#${cbId}`).addEventListener('change', (e) => {
       if (e.target.checked) state.selectedRepos.add(r.name);
       else state.selectedRepos.delete(r.name);
+      render();
+    });
+    wrap.querySelector(`#${descId}`).addEventListener('input', (e) => {
+      state.pinDescriptions[r.name] = e.target.value;
+      render();
+    });
+    wrap.querySelector(`#${stackId}`).addEventListener('input', (e) => {
+      state.pinStacks[r.name] = e.target.value;
       render();
     });
     root.appendChild(wrap);
@@ -200,6 +227,7 @@ function bindActions() {
 function readForm() {
   return {
     greeting:    $('#greeting').value.trim() || 'Hi there',
+    displayName: $('#displayName').value.trim() || state.githubUser,
     emoji:       $('#emoji').value.trim() || '👋',
     tagline:     $('#tagline').value.trim(),
     visitorLabel:$('#visitorLabel').value.trim() || 'profile views',
@@ -222,7 +250,11 @@ function readForm() {
       visitor:   $('#w-visitor').checked,
     },
 
-    pinned: Array.from(state.selectedRepos),
+    pinned: Array.from(state.selectedRepos).map((name) => ({
+      name,
+      description: state.pinDescriptions[name] || '',
+      stack: state.pinStacks[name] || '',
+    })),
 
     socials: {
       email:    $('#s-email').value.trim(),
