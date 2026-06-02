@@ -16,6 +16,7 @@ export default defineConfig({
       input: {
         main:    resolve(__dirname, 'index.html'),
         profile: resolve(__dirname, 'profile.html'),
+        editor:  resolve(__dirname, 'editor.html'),
       },
     },
   },

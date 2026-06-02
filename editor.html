@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0a0d12" />
+    <title>Profile README Editor — silverenternal</title>
+    <meta name="description" content="Compose a beautiful GitHub profile README in a form, see a live preview, and publish with one click." />
+  </head>
+  <body class="editor">
+    <div class="bg-grid" aria-hidden="true"></div>
+    <div class="bg-glow" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <a class="topbar__brand" href="./index.html">Year of Wonder</a>
+      <nav class="topbar__links">
+        <a class="topbar__link" href="./index.html">Experience</a>
+        <a class="topbar__link" href="./profile.html">Profile</a>
+        <a class="topbar__link is-active" href="./editor.html">Editor</a>
+        <a class="topbar__link topbar__link--external" href="https://github.com/silverenternal" target="_blank" rel="noopener">GitHub ↗</a>
+      </nav>
+    </header>
+
+    <main class="editor-grid">
+      <!-- ============ LEFT: form ============ -->
+      <section class="pane pane--form" aria-label="Editor">
+        <header class="pane__head">
+          <h1 class="pane__title">Profile README Editor</h1>
+          <p class="pane__sub">Compose your <code>silverenternal/silverenternal/README.md</code> with a form, preview live, publish when ready.</p>
+        </header>
+
+        <!-- Token bar -->
+        <details class="token-bar" open>
+          <summary>GitHub token (only needed for Save)</summary>
+          <div class="token-bar__body">
+            <input type="password" id="token" placeholder="ghp_… or gho_…" autocomplete="off" />
+            <small>Stored only in this browser's localStorage. Needs <code>repo</code> scope on the <code>silverenternal/silverenternal</code> repo.</small>
+            <div class="token-bar__actions">
+              <button class="btn btn--ghost btn--sm" id="load-current">Load current README</button>
+              <button class="btn btn--ghost btn--sm" id="clear-token">Clear</button>
+            </div>
+          </div>
+        </details>
+
+        <form id="form" class="form" autocomplete="off">
+
+          <!-- ===== Header ===== -->
+          <fieldset class="section">
+            <legend>Header</legend>
+
+            <label class="field">
+              <span class="field__label">Greeting</span>
+              <input type="text" id="greeting" value="Hi there" maxlength="80" />
+            </label>
+
+            <label class="field">
+              <span class="field__label">Emoji (single)</span>
+              <input type="text" id="emoji" value="👋" maxlength="4" />
+            </label>
+
+            <label class="field">
+              <span class="field__label">Tagline (one line, shown right after the greeting)</span>
+              <input type="text" id="tagline" value="I'm Hugo Lee — a CS student at China Jiliang University, working on AI and the web." />
+            </label>
+
+            <label class="field">
+              <span class="field__label">Visitor badge label</span>
+              <input type="text" id="visitorLabel" value="profile views" />
+            </label>
+          </fieldset>
+
+          <!-- ===== About ===== -->
+          <fieldset class="section">
+            <legend>About</legend>
+
+            <label class="field">
+              <span class="field__label">🔭 Currently working on</span>
+              <input type="text" id="a-working" value="A cinematic 3D web experience (Three.js)" />
+            </label>
+
+            <label class="field">
+              <span class="field__label">🌱 Currently learning</span>
+              <input type="text" id="a-learning" value="Creative coding, shader basics, and large language models" />
+            </label>
+
+            <label class="field">
+              <span class="field__label">👯 Looking to collaborate on</span>
+              <input type="text" id="a-collab" value="Open-source AI tools and learning resources for students" />
+            </label>
+
+            <label class="field">
+              <span class="field__label">💬 Ask me about</span>
+              <input type="text" id="a-ask" value="AI, web dev, university life, Hangzhou" />
+            </label>
+
+            <label class="field">
+              <span class="field__label">⚡ Fun fact</span>
+              <input type="text" id="a-fun" value="I once accidentally deployed to production on a Friday and survived." />
+            </label>
+          </fieldset>
+
+          <!-- ===== Tech stack ===== -->
+          <fieldset class="section">
+            <legend>Tech stack</legend>
+
+            <div class="chips" id="tech-chips">
+              <!-- populated from TECH_OPTIONS -->
+            </div>
+            <p class="hint">
+              Click to toggle. Renders as a row of colored badges via
+              <a href="https://github.com/tandpfun/skill-icons" target="_blank" rel="noopener">skill-icons</a>.
+            </p>
+          </fieldset>
+
+          <!-- ===== GitHub widgets ===== -->
+          <fieldset class="section">
+            <legend>GitHub widgets</legend>
+
+            <label class="check">
+              <input type="checkbox" id="w-stats" checked />
+              <span>GitHub Stats card <small>(github-readme-stats)</small></span>
+            </label>
+            <label class="check">
+              <input type="checkbox" id="w-streak" checked />
+              <span>Streak stats <small>(streak-stats)</small></span>
+            </label>
+            <label class="check">
+              <input type="checkbox" id="w-trophies" />
+              <span>Trophies <small>(github-profile-trophy)</small></span>
+            </label>
+            <label class="check">
+              <input type="checkbox" id="w-activity" />
+              <span>Activity graph <small>(github-readme-activity-graph)</small></span>
+            </label>
+            <label class="check">
+              <input type="checkbox" id="w-visitor" checked />
+              <span>Visitor badge <small>(visitor-badge)</small></span>
+            </label>
+          </fieldset>
+
+          <!-- ===== Pinned repos ===== -->
+          <fieldset class="section">
+            <legend>Pinned repos</legend>
+            <div class="repos" id="pinned-list">
+              <div class="repos__loading">Loading repositories…</div>
+            </div>
+            <p class="hint">Toggle which repos to show in the "Pinned" section. Renders as a card via github-readme-stats.</p>
+          </fieldset>
+
+          <!-- ===== Socials ===== -->
+          <fieldset class="section">
+            <legend>Socials</legend>
+
+            <label class="field">
+              <span class="field__label">Email</span>
+              <input type="email" id="s-email" value="3147264070@qq.com" />
+            </label>
+            <label class="field">
+              <span class="field__label">Blog / website URL</span>
+              <input type="url" id="s-blog" placeholder="https://example.com" />
+            </label>
+            <label class="field">
+              <span class="field__label">Twitter / X handle (no @)</span>
+              <input type="text" id="s-twitter" />
+            </label>
+            <label class="field">
+              <span class="field__label">LinkedIn slug (after /in/)</span>
+              <input type="text" id="s-linkedin" />
+            </label>
+            <label class="field">
+              <span class="field__label">Zhihu user ID (numeric)</span>
+              <input type="text" id="s-zhihu" />
+            </label>
+            <label class="field">
+              <span class="field__label">Bilibili UID</span>
+              <input type="text" id="s-bilibili" />
+            </label>
+          </fieldset>
+
+          <!-- ===== Actions ===== -->
+          <div class="actions">
+            <button type="button" class="btn btn--primary" id="save">Save to GitHub</button>
+            <button type="button" class="btn btn--ghost"   id="copy-md">Copy Markdown</button>
+            <button type="button" class="btn btn--ghost"   id="reset">Reset</button>
+            <span class="actions__status" id="status" aria-live="polite"></span>
+          </div>
+        </form>
+      </section>
+
+      <!-- ============ RIGHT: preview ============ -->
+      <section class="pane pane--preview" aria-label="Preview">
+        <header class="pane__head pane__head--preview">
+          <h2 class="pane__title">Preview</h2>
+          <div class="tabs">
+            <button class="tab is-active" data-tab="rendered">Rendered</button>
+            <button class="tab" data-tab="markdown">Markdown</button>
+          </div>
+        </header>
+
+        <div class="preview-stage" id="preview-rendered">
+          <article class="md" id="md-rendered"></article>
+        </div>
+        <pre class="preview-md" id="preview-markdown" hidden></pre>
+      </section>
+    </main>
+
+    <script type="module" src="/src/editor.js"></script>
+  </body>
+</html>
