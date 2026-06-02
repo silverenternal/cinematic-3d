@@ -1,100 +1,216 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 360" preserveAspectRatio="xMidYMid meet">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 400" preserveAspectRatio="xMidYMid meet">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%"  stop-color="#0a0d12"/>
-      <stop offset="50%" stop-color="#11161f"/>
-      <stop offset="100%" stop-color="#0a0d12"/>
+    <!--  Deep-space gradient: black-blue → midnight → near-black  -->
+    <linearGradient id="bg" x1="0" y1="0" x2="0.3" y2="1">
+      <stop offset="0%"   stop-color="#04081a"/>
+      <stop offset="40%"  stop-color="#0a1530"/>
+      <stop offset="100%" stop-color="#02050f"/>
     </linearGradient>
 
-    <radialGradient id="glow-a" cx="0.85" cy="0.4" r="0.5">
-      <stop offset="0%"  stop-color="#c69a55" stop-opacity="0.5"/>
-      <stop offset="60%" stop-color="#c69a55" stop-opacity="0.08"/>
-      <stop offset="100%" stop-color="#c69a55" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="glow-b" cx="0.05" cy="0.95" r="0.45">
-      <stop offset="0%"  stop-color="#5b8aa8" stop-opacity="0.35"/>
-      <stop offset="100%" stop-color="#5b8aa8" stop-opacity="0"/>
+    <!--  Nebula A: cold blue  -->
+    <radialGradient id="nebulaA" cx="0.78" cy="0.35" r="0.45">
+      <stop offset="0%"   stop-color="#3b6cc4" stop-opacity="0.55"/>
+      <stop offset="40%"  stop-color="#1d3a7a" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#0a1530" stop-opacity="0"/>
     </radialGradient>
 
-    <radialGradient id="planet" cx="0.5" cy="0.5" r="0.5">
-      <stop offset="0%"  stop-color="#f5e8c3"/>
-      <stop offset="55%" stop-color="#c69a55"/>
-      <stop offset="100%" stop-color="#3a2812"/>
+    <!--  Nebula B: violet-purple, lower-left  -->
+    <radialGradient id="nebulaB" cx="0.12" cy="0.85" r="0.4">
+      <stop offset="0%"   stop-color="#5b3a8c" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#5b3a8c" stop-opacity="0"/>
     </radialGradient>
 
-    <linearGradient id="ring-grad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%"   stop-color="#c69a55" stop-opacity="0"/>
-      <stop offset="50%"  stop-color="#e8d6a3" stop-opacity="0.9"/>
-      <stop offset="100%" stop-color="#c69a55" stop-opacity="0"/>
+    <!--  Nebula C: cyan, far right  -->
+    <radialGradient id="nebulaC" cx="1.05" cy="0.95" r="0.35">
+      <stop offset="0%"   stop-color="#2a8aa8" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#2a8aa8" stop-opacity="0"/>
+    </radialGradient>
+
+    <!--  Central black-hole accretion disk  -->
+    <radialGradient id="accretion" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%"   stop-color="#000000"/>
+      <stop offset="22%"  stop-color="#000000"/>
+      <stop offset="38%"  stop-color="#3b6cc4" stop-opacity="0.9"/>
+      <stop offset="55%"  stop-color="#6fbbff" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#6fbbff" stop-opacity="0"/>
+    </radialGradient>
+
+    <!--  Star glow  -->
+    <radialGradient id="starGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%"   stop-color="#ffffff" stop-opacity="1"/>
+      <stop offset="40%"  stop-color="#c8d4e6" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#6fbbff" stop-opacity="0"/>
+    </radialGradient>
+
+    <!--  Text gradient: cool white → soft blue  -->
+    <linearGradient id="textGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#e8eef8"/>
+      <stop offset="100%" stop-color="#6fbbff"/>
     </linearGradient>
 
-    <linearGradient id="text-grad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%"   stop-color="#f5e8c3"/>
-      <stop offset="100%" stop-color="#c69a55"/>
+    <!--  Accent line gradient  -->
+    <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#6fbbff" stop-opacity="0"/>
+      <stop offset="50%"  stop-color="#6fbbff" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#6fbbff" stop-opacity="0"/>
     </linearGradient>
   </defs>
 
-  <rect width="1280" height="360" fill="url(#bg)"/>
-  <rect width="1280" height="360" fill="url(#glow-a)"/>
-  <rect width="1280" height="360" fill="url(#glow-b)"/>
+  <!-- ============================== -->
+  <!--  Background layers             -->
+  <!-- ============================== -->
+  <rect width="1280" height="400" fill="url(#bg)"/>
+  <rect width="1280" height="400" fill="url(#nebulaA)"/>
+  <rect width="1280" height="400" fill="url(#nebulaB)"/>
+  <rect width="1280" height="400" fill="url(#nebulaC)"/>
 
-  <g stroke="#e8d6a3" stroke-width="0.5" opacity="0.06">
-    <line x1="0" y1="90"  x2="1280" y2="90"/>
-    <line x1="0" y1="180" x2="1280" y2="180"/>
-    <line x1="0" y1="270" x2="1280" y2="270"/>
-    <line x1="320"  y1="0" x2="320"  y2="360"/>
-    <line x1="640"  y1="0" x2="640"  y2="360"/>
-    <line x1="960"  y1="0" x2="960"  y2="360"/>
-  </g>
-
-  <g transform="translate(1060 180)">
-    <circle r="160" fill="none" stroke="#c69a55" stroke-width="0.4" opacity="0.18" stroke-dasharray="1 6"/>
-    <circle r="120" fill="none" stroke="#c69a55" stroke-width="0.7" opacity="0.4"  stroke-dasharray="3 5"/>
-    <circle r="84"  fill="none" stroke="#c69a55" stroke-width="0.9" opacity="0.55"/>
-    <ellipse rx="150" ry="48" fill="none" stroke="url(#ring-grad)" stroke-width="1.2" opacity="0.7" transform="rotate(20)"/>
-    <ellipse rx="170" ry="56" fill="none" stroke="#c69a55" stroke-width="0.5" opacity="0.25" transform="rotate(-15)"/>
-    <circle r="54" fill="url(#planet)"/>
-    <circle r="54" fill="none" stroke="#0a0d12" stroke-width="1" opacity="0.6"/>
-    <circle r="64" fill="none" stroke="#e8d6a3" stroke-width="0.5" opacity="0.3"/>
-    <circle cx="0"   cy="-120" r="4" fill="#e8d6a3"/>
-    <circle cx="150" cy="0"    r="3" fill="#c69a55"/>
-    <circle cx="-84" cy="0"    r="2.5" fill="#e8d6a3" opacity="0.8"/>
-    <g stroke="#c69a55" stroke-width="1" opacity="0.6">
-      <line x1="-190" y1="-140" x2="-170" y2="-140"/>
-      <line x1="-190" y1="-140" x2="-190" y2="-120"/>
-      <line x1="190"  y1="140"  x2="170"  y2="140"/>
-      <line x1="190"  y1="140"  x2="190"  y2="120"/>
+  <!-- ============================== -->
+  <!--  Star field (60+ stars)        -->
+  <!-- ============================== -->
+  <g>
+    <!-- big stars (with glow) -->
+    <g>
+      <circle cx="120"  cy="60"  r="1.5" fill="#ffffff"/>
+      <circle cx="180"  cy="320" r="1.2" fill="#c8d4e6"/>
+      <circle cx="260"  cy="40"  r="1.0" fill="#ffffff"/>
+      <circle cx="340"  cy="280" r="1.3" fill="#c8d4e6"/>
+      <circle cx="430"  cy="80"  r="0.9" fill="#ffffff"/>
+      <circle cx="520"  cy="320" r="1.1" fill="#c8d4e6"/>
+      <circle cx="600"  cy="50"  r="0.8" fill="#ffffff"/>
+      <circle cx="700"  cy="300" r="1.4" fill="#c8d4e6"/>
+      <circle cx="800"  cy="40"  r="1.0" fill="#ffffff"/>
+      <circle cx="880"  cy="340" r="0.9" fill="#c8d4e6"/>
+      <circle cx="980"  cy="60"  r="1.2" fill="#ffffff"/>
+      <circle cx="1080" cy="310" r="1.0" fill="#c8d4e6"/>
+      <circle cx="1180" cy="80"  r="1.3" fill="#ffffff"/>
+      <circle cx="1240" cy="320" r="0.9" fill="#c8d4e6"/>
+    </g>
+    <!--  medium stars (no glow, sharper)  -->
+    <g fill="#c8d4e6">
+      <circle cx="60"   cy="180" r="0.7"/>
+      <circle cx="100"  cy="240" r="0.6"/>
+      <circle cx="200"  cy="140" r="0.7"/>
+      <circle cx="290"  cy="200" r="0.5"/>
+      <circle cx="380"  cy="160" r="0.6"/>
+      <circle cx="460"  cy="220" r="0.7"/>
+      <circle cx="540"  cy="180" r="0.5"/>
+      <circle cx="620"  cy="140" r="0.6"/>
+      <circle cx="720"  cy="220" r="0.7"/>
+      <circle cx="820"  cy="160" r="0.5"/>
+      <circle cx="900"  cy="200" r="0.6"/>
+      <circle cx="980"  cy="180" r="0.7"/>
+      <circle cx="1060" cy="140" r="0.5"/>
+      <circle cx="1140" cy="220" r="0.6"/>
+      <circle cx="1220" cy="180" r="0.7"/>
+    </g>
+    <!--  small stars  -->
+    <g fill="#7a8ba8">
+      <circle cx="80"   cy="100" r="0.4"/>
+      <circle cx="150"  cy="170" r="0.3"/>
+      <circle cx="220"  cy="250" r="0.4"/>
+      <circle cx="300"  cy="120" r="0.3"/>
+      <circle cx="380"  cy="200" r="0.4"/>
+      <circle cx="450"  cy="50"  r="0.3"/>
+      <circle cx="500"  cy="260" r="0.4"/>
+      <circle cx="580"  cy="220" r="0.3"/>
+      <circle cx="650"  cy="80"  r="0.4"/>
+      <circle cx="720"  cy="180" r="0.3"/>
+      <circle cx="800"  cy="250" r="0.4"/>
+      <circle cx="870"  cy="120" r="0.3"/>
+      <circle cx="940"  cy="50"  r="0.4"/>
+      <circle cx="1000" cy="240" r="0.3"/>
+      <circle cx="1080" cy="190" r="0.4"/>
+      <circle cx="1150" cy="50"  r="0.3"/>
+      <circle cx="1220" cy="240" r="0.4"/>
     </g>
   </g>
 
+  <!-- ============================== -->
+  <!--  Constellation lines          -->
+  <!-- ============================== -->
+  <g stroke="#6fbbff" stroke-width="0.4" opacity="0.35" fill="none">
+    <polyline points="120,60 180,320 260,40 340,280"/>
+    <polyline points="700,300 800,40 880,340 980,60"/>
+    <polyline points="1080,310 1180,80 1240,320"/>
+  </g>
+
+  <!-- ============================== -->
+  <!--  Right: black hole + halo      -->
+  <!-- ============================== -->
+  <g transform="translate(1060 200)">
+    <!--  far halo  -->
+    <circle r="180" fill="none" stroke="#6fbbff" stroke-width="0.4" opacity="0.18"/>
+    <circle r="150" fill="none" stroke="#6fbbff" stroke-width="0.6" opacity="0.3"  stroke-dasharray="2 4"/>
+    <circle r="120" fill="none" stroke="#6fbbff" stroke-width="0.8" opacity="0.5"/>
+    <ellipse rx="200" ry="60" fill="none" stroke="#6fbbff" stroke-width="0.7" opacity="0.45" transform="rotate(25)"/>
+    <ellipse rx="220" ry="70" fill="none" stroke="#6fbbff" stroke-width="0.4" opacity="0.2" transform="rotate(-20)"/>
+
+    <!--  accretion glow  -->
+    <circle r="95" fill="url(#accretion)"/>
+
+    <!--  event horizon  -->
+    <circle r="50" fill="#000000"/>
+    <circle r="50" fill="none" stroke="#3b6cc4" stroke-width="0.8" opacity="0.7"/>
+
+    <!--  photon ring  -->
+    <circle r="55" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.5"/>
+    <circle r="65" fill="none" stroke="#6fbbff" stroke-width="0.4" opacity="0.4"/>
+
+    <!--  HUD corner ticks  -->
+    <g stroke="#6fbbff" stroke-width="1" opacity="0.6">
+      <line x1="-210" y1="-160" x2="-185" y2="-160"/>
+      <line x1="-210" y1="-160" x2="-210" y2="-135"/>
+      <line x1="210"  y1="160"  x2="185"  y2="160"/>
+      <line x1="210"  y1="160"  x2="210"  y2="135"/>
+    </g>
+    <text x="-210" y="-145" font-family="JetBrains Mono, monospace" font-size="8"
+          letter-spacing="2" fill="#6fbbff" opacity="0.6">SG-1</text>
+    <text x="180"  y="170" font-family="JetBrains Mono, monospace" font-size="8"
+          letter-spacing="2" fill="#6fbbff" opacity="0.6" text-anchor="end">CYGNUS X-1</text>
+  </g>
+
+  <!-- ============================== -->
+  <!--  Left: typography              -->
+  <!-- ============================== -->
   <g transform="translate(70 0)">
-    <line x1="0" y1="56" x2="40" y2="56" stroke="url(#ring-grad)" stroke-width="1.2"/>
+    <!--  eyebrow  -->
+    <line x1="0" y1="56" x2="40" y2="56" stroke="url(#lineGrad)" stroke-width="1.2"/>
     <text x="52" y="60" font-family="JetBrains Mono, Menlo, monospace" font-size="11"
-          letter-spacing="6" fill="#c69a55">RUST · WEBGL · CREATIVE CODE</text>
+          letter-spacing="6" fill="#6fbbff">RUST · WEBGL · CREATIVE CODE</text>
 
-    <text x="0" y="170" font-family="Georgia, 'Times New Roman', serif" font-size="88"
-          font-weight="300" letter-spacing="-3" fill="url(#text-grad)">Hugo Lee</text>
+    <!--  main name  -->
+    <text x="0" y="180" font-family="Georgia, 'Times New Roman', serif" font-size="92"
+          font-weight="300" letter-spacing="-3" fill="url(#textGrad)">Hugo Lee</text>
 
-    <line x1="0" y1="200" x2="220" y2="200" stroke="url(#ring-grad)" stroke-width="1.4"/>
-    <line x1="220" y1="200" x2="270" y2="200" stroke="#c69a55" stroke-width="1.4" opacity="0.4"/>
+    <!--  divider  -->
+    <line x1="0" y1="210" x2="220" y2="210" stroke="url(#lineGrad)" stroke-width="1.4"/>
+    <circle cx="232" cy="210" r="2.5" fill="#6fbbff" opacity="0.9"/>
+    <line x1="240" y1="210" x2="290" y2="210" stroke="#6fbbff" stroke-width="1.4" opacity="0.4"/>
 
-    <text x="0" y="238" font-family="Georgia, serif" font-size="20" font-style="italic"
-          font-weight="300" fill="#e8d6a3" opacity="0.85">author of the tokitai crate family</text>
+    <!--  tagline  -->
+    <text x="0" y="248" font-family="Georgia, serif" font-size="20" font-style="italic"
+          font-weight="300" fill="#c8d4e6" opacity="0.85">author of the tokitai crate family</text>
 
-    <g transform="translate(0 278)">
+    <!--  sub-meta  -->
+    <g transform="translate(0 290)">
       <text x="0" y="0" font-family="JetBrains Mono, monospace" font-size="11"
-            letter-spacing="3" fill="#e8d6a3" opacity="0.6">CINEMATIC WEB · THREE.JS · SHADERS · TOKIO-STYLE RUST</text>
+            letter-spacing="3" fill="#7a8ba8">CINEMATIC WEB · THREE.JS · ASYNC RUST</text>
     </g>
 
-    <g transform="translate(0 320)">
-      <line x1="0" y1="0" x2="40" y2="0" stroke="#c69a55" stroke-width="1" opacity="0.7"/>
+    <!--  arrow prompt  -->
+    <g transform="translate(0 340)">
+      <line x1="0" y1="0" x2="40" y2="0" stroke="#6fbbff" stroke-width="1" opacity="0.7"/>
       <text x="50" y="4" font-family="JetBrains Mono, monospace" font-size="10"
-            letter-spacing="3" fill="#c69a55" opacity="0.85">→ SCROLL DOWN</text>
+            letter-spacing="3" fill="#6fbbff" opacity="0.85">→ SCROLL DOWN</text>
     </g>
   </g>
 
-  <g transform="translate(640 50)" stroke="#c69a55" stroke-width="0.5" opacity="0.4">
+  <!-- ============================== -->
+  <!--  Top-center crosshair          -->
+  <!-- ============================== -->
+  <g transform="translate(640 50)" stroke="#6fbbff" stroke-width="0.5" opacity="0.5">
     <line x1="-15" y1="0" x2="15" y2="0"/>
     <line x1="0" y1="-15" x2="0" y2="15"/>
+    <circle r="6" fill="none"/>
   </g>
 </svg>
