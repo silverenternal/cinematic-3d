@@ -36,7 +36,7 @@ export class World {
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.15;
-    renderer.setClearColor(0x0a0d12, 1);
+    renderer.setClearColor(0x060b1a, 1);
     this.renderer = renderer;
   }
 
@@ -45,8 +45,8 @@ export class World {
   // --------------------------------------------------------------
   _initScene() {
     const scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(0x0a0d12, 0.022);
-    scene.background = new THREE.Color(0x0a0d12);
+    scene.fog = new THREE.FogExp2(0x060b1a, 0.022);
+    scene.background = new THREE.Color(0x060b1a);
     this.scene = scene;
   }
 
@@ -68,7 +68,7 @@ export class World {
     const ambient = new THREE.AmbientLight(0x223344, 0.35);
     this.scene.add(ambient);
 
-    const key = new THREE.DirectionalLight(0xfff1d6, 1.6);
+    const key = new THREE.DirectionalLight(0xcfd9ea, 1.6);
     key.position.set(4, 6, 5);
     this.scene.add(key);
 
@@ -76,7 +76,7 @@ export class World {
     rim.position.set(-5, 2, -4);
     this.scene.add(rim);
 
-    const fill = new THREE.PointLight(0xc69a55, 1.4, 30, 1.6);
+    const fill = new THREE.PointLight(0x6fbbff, 1.4, 30, 1.6);
     fill.position.set(0, 0, 0);
     this.scene.add(fill);
 
@@ -90,10 +90,10 @@ export class World {
     // ---- central glowing polyhedron (the "subject") ----
     const subjectGeo = new THREE.IcosahedronGeometry(1.05, 1);
     const subjectMat = new THREE.MeshStandardMaterial({
-      color: 0x0a0d12,
+      color: 0x060b1a,
       metalness: 0.95,
       roughness: 0.18,
-      emissive: 0xc69a55,
+      emissive: 0x6fbbff,
       emissiveIntensity: 0.45,
       flatShading: true,
     });
@@ -104,7 +104,7 @@ export class World {
     // ---- inner glow halo (additive sprite-like mesh) ----
     const haloGeo = new THREE.SphereGeometry(1.55, 32, 32);
     const haloMat = new THREE.MeshBasicMaterial({
-      color: 0xe8d6a3,
+      color: 0xaac1e0,
       transparent: true,
       opacity: 0.06,
       blending: THREE.AdditiveBlending,
@@ -118,7 +118,7 @@ export class World {
     // ---- orbiting wireframe ring ----
     const ringGeo = new THREE.TorusGeometry(2.4, 0.012, 16, 200);
     const ringMat = new THREE.MeshBasicMaterial({
-      color: 0xe8d6a3,
+      color: 0xaac1e0,
       transparent: true,
       opacity: 0.35,
     });
@@ -142,7 +142,7 @@ export class World {
       new THREE.BoxGeometry(0.08, 0.08, 0.08),
     ];
     const debrisMat = new THREE.MeshStandardMaterial({
-      color: 0x4a5a6a,
+      color: 0x2c3e5a,
       metalness: 0.6,
       roughness: 0.4,
       flatShading: true,
@@ -185,9 +185,9 @@ export class World {
       starPositions[i * 3 + 1] = r * Math.cos(p);
       starPositions[i * 3 + 2] = r * Math.sin(p) * Math.sin(t);
       const tone = 0.5 + Math.random() * 0.5;
-      starColors[i * 3]     = tone * 0.9;
+      starColors[i * 3]     = tone * 0.7;
       starColors[i * 3 + 1] = tone * 0.85;
-      starColors[i * 3 + 2] = tone * 0.7;
+      starColors[i * 3 + 2] = tone * 0.95;
     }
     const starGeo = new THREE.BufferGeometry();
     starGeo.setAttribute('position', new THREE.BufferAttribute(starPositions, 3));
@@ -215,7 +215,7 @@ export class World {
     const dustGeo = new THREE.BufferGeometry();
     dustGeo.setAttribute('position', new THREE.BufferAttribute(dustPositions, 3));
     const dustMat = new THREE.PointsMaterial({
-      color: 0xe8d6a3,
+      color: 0xaac1e0,
       size: 0.04,
       transparent: true,
       opacity: 0.5,
