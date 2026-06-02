@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#02050f"/>
+      <stop offset="100%" stop-color="#04081a"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="600" fill="url(#bg)"/>
+
+  <!--  top micro label  -->
+  <g font-family="JetBrains Mono, Menlo, monospace" font-size="11" letter-spacing="0.4em" fill="#6fbbff" opacity="0.7">
+    <text x="450" y="40" text-anchor="middle">·  C R A T E   F A M I L Y   ·   v 0.5.1  ·</text>
+  </g>
+  <line x1="60" y1="58" x2="840" y2="58" stroke="#1d3a7a" stroke-width="0.5"/>
+
+  <!-- ============================== -->
+  <!--  dependency graph  -->
+  <!-- ============================== -->
+
+  <!-- facade: tokitai -->
+  <g font-family="JetBrains Mono, Menlo, monospace" font-size="13" fill="#eef2f9">
+    <text x="450" y="100" text-anchor="middle">┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓</text>
+    <text x="450" y="118" text-anchor="middle">┃</text>
+    <text x="240" y="118" text-anchor="end">┃</text><text x="660" y="118" text-anchor="start">┃</text>
+    <text x="450" y="118" text-anchor="middle">  </text>
+    <text x="450" y="118" text-anchor="middle">┃</text>
+    <text x="450" y="136" text-anchor="middle">┃  </text>
+    <text x="290" y="136" fill="#6fbbff">$</text>  <text x="308" y="136" fill="#aac1e0">cargo info tokitai</text>
+    <text x="450" y="136" text-anchor="middle">  </text>
+    <text x="450" y="136" text-anchor="middle">┃</text>
+    <text x="450" y="154" text-anchor="middle">┃  name:</text>  <text x="492" y="154" fill="#eef2f9">tokitai  v0.5.1</text>  <text x="780" y="154" text-anchor="end">  ┃</text>
+    <text x="450" y="172" text-anchor="middle">┃  role:</text>  <text x="492" y="172" fill="#aac1e0">facade · runtime composition</text>  <text x="780" y="172" text-anchor="end">  ┃</text>
+    <text x="450" y="190" text-anchor="middle">┃  deps:</text>  <text x="492" y="190" fill="#6e7e9a">tokitai-core, tokio, axum, tower, ...</text>  <text x="780" y="190" text-anchor="end">  ┃</text>
+    <text x="450" y="208" text-anchor="middle">┃</text>
+    <text x="450" y="226" text-anchor="middle">┗━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┛</text>
+  </g>
+
+  <!-- vertical connectors -->
+  <g font-family="JetBrains Mono, Menlo, monospace" font-size="13" fill="#1d3a7a">
+    <text x="240" y="244">│</text>
+    <text x="660" y="244">│</text>
+    <text x="240" y="260">│</text>
+    <text x="660" y="260">│</text>
+    <text x="240" y="276">▼</text>
+    <text x="660" y="276">▼</text>
+  </g>
+
+  <!-- core + macros  -->
+  <g font-family="JetBrains Mono, Menlo, monospace" font-size="13" fill="#eef2f9">
+    <!-- core -->
+    <text x="100" y="306">┌─────────────────────┐</text>
+    <text x="100" y="324">│</text>  <text x="262" y="324">│</text>
+    <text x="120" y="324" fill="#6fbbff">$</text>  <text x="138" y="324" fill="#aac1e0">core</text>
+    <text x="100" y="342">│  name:</text>  <text x="140" y="342" fill="#eef2f9">tokitai-core</text>   <text x="262" y="342">│</text>
+    <text x="100" y="360">│  ver:</text>  <text x="140" y="360" fill="#eef2f9">0.5.1</text>           <text x="262" y="360">│</text>
+    <text x="100" y="378">│  role:</text> <text x="140" y="378" fill="#aac1e0">primitives</text>     <text x="262" y="378">│</text>
+    <text x="100" y="396">│  role:</text> <text x="140" y="396" fill="#aac1e0">task model</text>     <text x="262" y="396">│</text>
+    <text x="100" y="414">│</text>  <text x="262" y="414">│</text>
+    <text x="100" y="432">└────────┬────────────┘</text>
+
+    <!-- macros -->
+    <text x="520" y="306">┌─────────────────────┐</text>
+    <text x="520" y="324">│</text>  <text x="682" y="324">│</text>
+    <text x="540" y="324" fill="#6fbbff">$</text>  <text x="558" y="324" fill="#aac1e0">macros</text>
+    <text x="520" y="342">│  name:</text>  <text x="560" y="342" fill="#eef2f9">tokitai-macros</text> <text x="682" y="342">│</text>
+    <text x="520" y="360">│  ver:</text>  <text x="560" y="360" fill="#eef2f9">0.5.1</text>           <text x="682" y="360">│</text>
+    <text x="520" y="378">│  role:</text> <text x="560" y="378" fill="#aac1e0">proc-macros</text>    <text x="682" y="378">│</text>
+    <text x="520" y="396">│  role:</text> <text x="560" y="396" fill="#aac1e0">declarative DSL</text> <text x="682" y="396">│</text>
+    <text x="520" y="414">│</text>  <text x="682" y="414">│</text>
+    <text x="520" y="432">└────────┬────────────┘</text>
+  </g>
+
+  <!-- horizontal join -->
+  <g font-family="JetBrains Mono, Menlo, monospace" font-size="13" fill="#1d3a7a">
+    <text x="190" y="450">└──────────┐</text>
+    <text x="450" y="450">────────────────────────</text>
+    <text x="610" y="450">┌──────────┘</text>
+    <text x="450" y="466">│</text>
+    <text x="450" y="482">▼</text>
+  </g>
+
+  <!-- runtime layer -->
+  <g font-family="JetBrains Mono, Menlo, monospace" font-size="13" fill="#eef2f9">
+    <text x="200" y="510">┌────────────────────────────────────────────────────────────┐</text>
+    <text x="200" y="528">│</text>  <text x="772" y="528">│</text>
+    <text x="220" y="528" fill="#6fbbff">$</text>  <text x="238" y="528" fill="#aac1e0">runtime</text>
+    <text x="200" y="546">│  tokio  ·  tower  ·  axum  ·  tracing  ·  async-trait  ·  ...  │</text>
+    <text x="200" y="564">│</text>  <text x="772" y="564">│</text>
+    <text x="200" y="582">└────────────────────────────────────────────────────────────┘</text>
+  </g>
+</svg>

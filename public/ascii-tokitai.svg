@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 480" preserveAspectRatio="xMidYMid meet">
+<defs>
+<linearGradient id="bg3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#02050f"/><stop offset="100%" stop-color="#04081a"/></linearGradient>
+</defs>
+<rect width="1280" height="480" fill="url(#bg3)"/>
+<g font-family="JetBrains Mono, Menlo, monospace" font-size="13" fill="#1d3a7a">
+<text x="80" y="40">╔══════════════════════════════════════════════════════════════════════════════════════════╗</text>
+<text x="80" y="56">║</text><text x="1200" y="56">║</text>
+<text x="80" y="72">╠══════════════════════════════════════════════════════════════════════════════════════════╣</text>
+</g>
+<text x="640" y="60" font-family="JetBrains Mono, Menlo, monospace" font-size="11" letter-spacing="0.4em" fill="#6fbbff" text-anchor="middle">·  crates.io / family / async  ·</text>
+<g font-family="JetBrains Mono, Menlo, monospace" font-size="24" font-weight="700" fill="#6fbbff" letter-spacing="0">
+<text x="196" y="104"> _____ ___  _  _____ _____  _    ___ </text>
+<text x="196" y="136">|_   _/ _ \\| |/ /_ _|_   _|/ \\  |_ _|</text>
+<text x="196" y="168">  | || | | | ' / | |  | | / _ \\  | | </text>
+<text x="196" y="200">  | || |_| | . \\ | |  | |/ ___ \\ | | </text>
+<text x="196" y="232">  |_| \\___/|_|\\_\\___| |_/_/   \\_\\___|</text>
+<text x="196" y="264">                                     </text>
+</g>
+<g font-family="JetBrains Mono, Menlo, monospace" font-size="12" fill="#6e7e9a" letter-spacing="0.18em">
+<text x="640" y="280" text-anchor="middle">v 0.5.1  ·  facade · runtime composition  ·  declarative DSL</text>
+</g>
+<g font-family="JetBrains Mono, Menlo, monospace" font-size="13" fill="#1d3a7a">
+<text x="80" y="310">╠══════════════════════════════════════════════════════════════════════════════════════════╣</text>
+<text x="80" y="326">║</text><text x="1200" y="326">║</text>
+<text x="80" y="342">╚══════════════════════════════════════════════════════════════════════════════════════════╝</text>
+</g>
+<text x="640" y="330" font-family="JetBrains Mono, Menlo, monospace" font-size="11" letter-spacing="0.4em" fill="#6fbbff" text-anchor="middle">·  → silverenternal.github.io/cinematic-3d/lab.html  ·</text>
+</svg>
