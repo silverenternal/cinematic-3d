@@ -5,20 +5,20 @@
  */
 
 :root {
-  --bg: #0a0d12;
-  --bg-2: #11151c;
-  --bg-3: #161b24;
-  --line: rgba(232, 214, 163, 0.14);
-  --line-strong: rgba(232, 214, 163, 0.28);
-  --ink: #e8d6a3;
-  --ink-dim: rgba(232, 214, 163, 0.62);
-  --ink-faint: rgba(232, 214, 163, 0.32);
-  --accent: #c69a55;
-  --accent-soft: rgba(198, 154, 85, 0.18);
+  --bg: #060b1a;
+  --bg-2: #0c1428;
+  --bg-3: #11192e;
+  --line: rgba(170, 193, 224, 0.12);
+  --line-strong: rgba(170, 193, 224, 0.28);
+  --ink: #eef2f9;
+  --ink-dim: rgba(170, 193, 224, 0.7);
+  --ink-faint: rgba(170, 193, 224, 0.4);
+  --accent: #6fbbff;
+  --accent-soft: rgba(111, 187, 255, 0.18);
   --serif: "Cormorant Garamond", "Times New Roman", "Songti SC", "STSong", serif;
-  --sans: "Inter", -apple-system, "Helvetica Neue", "PingFang SC", sans-serif;
+  --sans: "Inter", -apple-system, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
   --mono: "JetBrains Mono", "SF Mono", Menlo, monospace;
-  --pad: clamp(20px, 4vw, 56px);
+  --pad: clamp(28px, 5vw, 80px);
   --radius: 4px;
 }
 
