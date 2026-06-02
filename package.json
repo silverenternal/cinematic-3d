@@ -1,0 +1,20 @@
+{
+  "name": "cinematic-3d",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "A cinematic 3D web experience — orbiting camera, particle dust, fog, and film-grade post-processing.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --port 4173",
+    "deploy": "vite build && gh-pages -d dist"
+  },
+  "dependencies": {
+    "three": "^0.169.0"
+  },
+  "devDependencies": {
+    "vite": "^5.4.10",
+    "vite-plugin-glsl": "^1.3.0"
+  }
+}

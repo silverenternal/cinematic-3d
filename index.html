@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="theme-color" content="#0a0d12" />
+    <title>Year of Wonder — A Cinematic 3D Experience</title>
+    <meta name="description" content="An interactive 3D cinematic experience — drag to orbit, scroll to travel through a year of wonder." />
+  </head>
+  <body>
+    <canvas id="stage"></canvas>
+
+    <div class="vignette" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="hud hud--top">
+      <div class="brand">
+        <span class="brand__line">Year</span>
+        <span class="brand__line">of Wonder</span>
+      </div>
+      <div class="meta">
+        <span class="meta__label">a cinematic 3D experience</span>
+        <span class="meta__index" id="frame-index">01 / 12</span>
+      </div>
+    </header>
+
+    <main class="hud hud--center">
+      <div class="chapter" id="chapter">
+        <span class="chapter__eyebrow">Chapter</span>
+        <h1 class="chapter__title" id="chapter-title">Awakening</h1>
+        <p class="chapter__lede" id="chapter-lede">A new year opens with a single, quiet light in the dark.</p>
+      </div>
+    </main>
+
+    <footer class="hud hud--bottom">
+      <div class="hints">
+        <span class="hint"><span class="hint__dot"></span>Drag to orbit</span>
+        <span class="hint"><span class="hint__dot"></span>Scroll to travel</span>
+      </div>
+      <div class="rail" id="rail">
+        <div class="rail__track">
+          <div class="rail__progress" id="rail-progress"></div>
+        </div>
+        <div class="rail__ticks" id="rail-ticks"></div>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
