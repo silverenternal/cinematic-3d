@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 200" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="panelBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#0a1530"/>
+      <stop offset="100%" stop-color="#04081a"/>
+    </linearGradient>
+    <linearGradient id="gradNum" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#e8eef8"/>
+      <stop offset="100%" stop-color="#6fbbff"/>
+    </linearGradient>
+    <linearGradient id="gradLine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#6fbbff" stop-opacity="0"/>
+      <stop offset="50%"  stop-color="#6fbbff" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#6fbbff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- frame -->
+  <rect x="2" y="2" width="1096" height="196" rx="6" fill="url(#panelBg)" stroke="#1d3a7a" stroke-width="0.6"/>
+
+  <!-- corner ticks (HUD) -->
+  <g stroke="#6fbbff" stroke-width="1" opacity="0.7">
+    <line x1="14"  y1="14"  x2="30"  y2="14"/>
+    <line x1="14"  y1="14"  x2="14"  y2="30"/>
+    <line x1="1086" y1="14"  x2="1070" y2="14"/>
+    <line x1="1086" y1="14"  x2="1086" y2="30"/>
+    <line x1="14"  y1="186" x2="30"  y2="186"/>
+    <line x1="14"  y1="186" x2="14"  y2="170"/>
+    <line x1="1086" y1="186" x2="1070" y2="186"/>
+    <line x1="1086" y1="186" x2="1086" y2="170"/>
+  </g>
+
+  <!-- header bar -->
+  <line x1="40" y1="36" x2="1060" y2="36" stroke="url(#gradLine)" stroke-width="0.6"/>
+  <text x="40" y="28" font-family="JetBrains Mono, monospace" font-size="10"
+        letter-spacing="3" fill="#6fbbff" opacity="0.85">▸ GITHUB.STATS / LIVE</text>
+  <text x="1060" y="28" font-family="JetBrains Mono, monospace" font-size="10"
+        letter-spacing="3" fill="#6fbbff" opacity="0.85" text-anchor="end">@silverenternal</text>
+
+  <!-- 4 stat cells -->
+  <g>
+    <!-- cell 1: repos -->
+    <g transform="translate(60 60)">
+      <text x="0" y="14" font-family="JetBrains Mono, monospace" font-size="10"
+            letter-spacing="3" fill="#7a8ba8">PUBLIC REPOS</text>
+      <text x="0" y="78" font-family="Georgia, serif" font-size="60" font-weight="300"
+            fill="url(#gradNum)">26</text>
+      <text x="0" y="110" font-family="JetBrains Mono, monospace" font-size="10"
+            letter-spacing="2" fill="#6fbbff" opacity="0.7">+ 1 this month</text>
+    </g>
+
+    <!-- divider -->
+    <line x1="280" y1="50" x2="280" y2="170" stroke="#1d3a7a" stroke-width="0.6"/>
+
+    <!-- cell 2: commits -->
+    <g transform="translate(320 60)">
+      <text x="0" y="14" font-family="JetBrains Mono, monospace" font-size="10"
+            letter-spacing="3" fill="#7a8ba8">COMMITS</text>
+      <text x="0" y="78" font-family="Georgia, serif" font-size="60" font-weight="300"
+            fill="url(#gradNum)">193</text>
+      <text x="0" y="110" font-family="JetBrains Mono, monospace" font-size="10"
+            letter-spacing="2" fill="#6fbbff" opacity="0.7">across all repos</text>
+    </g>
+
+    <!-- divider -->
+    <line x1="540" y1="50" x2="540" y2="170" stroke="#1d3a7a" stroke-width="0.6"/>
+
+    <!-- cell 3: crates.io -->
+    <g transform="translate(580 60)">
+      <text x="0" y="14" font-family="JetBrains Mono, monospace" font-size="10"
+            letter-spacing="3" fill="#7a8ba8">CRATES</text>
+      <text x="0" y="78" font-family="Georgia, serif" font-size="60" font-weight="300"
+            fill="url(#gradNum)">3</text>
+      <text x="0" y="110" font-family="JetBrains Mono, monospace" font-size="10"
+            letter-spacing="2" fill="#6fbbff" opacity="0.7">tokitai · 0.5.1</text>
+    </g>
+
+    <!-- divider -->
+    <line x1="800" y1="50" x2="800" y2="170" stroke="#1d3a7a" stroke-width="0.6"/>
+
+    <!-- cell 4: since -->
+    <g transform="translate(840 60)">
+      <text x="0" y="14" font-family="JetBrains Mono, monospace" font-size="10"
+            letter-spacing="3" fill="#7a8ba8">SINCE</text>
+      <text x="0" y="78" font-family="Georgia, serif" font-size="60" font-weight="300"
+            fill="url(#gradNum)">2024</text>
+      <text x="0" y="110" font-family="JetBrains Mono, monospace" font-size="10"
+            letter-spacing="2" fill="#6fbbff" opacity="0.7">building in public</text>
+    </g>
+  </g>
+</svg>
